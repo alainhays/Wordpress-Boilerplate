@@ -198,30 +198,51 @@
 	.offset11 {
 		margin-left: (percentage((11*column+23*margin)/max-width));
 	}
-
-	&:after {
-		@include cf();
-	}
-
-	/* Can't decide whether this will be useful, or will cause issues */
-	// @include max-mobile() {
-	// 	[class*=offset] {
-	// 		margin-left: (percentage(margin/max-width));
-	// 	}
-	// }
-
 }
 
-@include max-mobile() {
-	section {
-		.row {
-			[class^=span] {
-				width: (percentage((12*column+22*margin)/max-width));
-			}
+section {
+	position: relative;
+	color red
 
-			[class*=offset] {
-				margin-left: (percentage(margin/max-width));
-			}
+	@media(max-width 960px){
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	@media(max-width 568px){
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+.content {
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	+size(desktop){
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+}
+
+
+/*** EQUALISE area ***/
+.equalise {
+	.row {
+		// The following applies display: flex; to the row. This means all spans below it will have equal heights.
+		display flex
+		flex-align center
+		align-items center
+		justify-content center
+
+		// If the span contains buttons and they need to be aligned to the bottom:
+		.button {
+			position: absolute;
+			bottom: 0;
+		}
+		[class^=span] {
+			// The padding-bottom is based on the size of the bottom. Ideally the text within the button would be kept to a minimum.
+			padding-bottom: 45px;
 		}
 	}
 }
