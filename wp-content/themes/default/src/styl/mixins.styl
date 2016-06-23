@@ -1,0 +1,13 @@
+retina()
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+		{block}
+
+retina-image( img-src, size, suffix = "@2x" )
+	ext = extname( img-src )
+	image-src = pathjoin( dirname( img-src ), basename( img-src, ext ) + ext )
+	retina-src = pathjoin( dirname( img-src ), basename( img-src, ext ) + suffix + ext )
+	
+	background-image: url( image-src )
+	+retina()
+		background-image: url( retina-src )
+		background-size: size

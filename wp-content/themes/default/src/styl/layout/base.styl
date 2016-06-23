@@ -1,0 +1,43 @@
+body {
+	position: relative;
+	width: 100%;
+	left: 0;
+	transition: left 0.3s ease;
+    font-size 24px;
+
+    +size(mobile){
+        color darkdarkred
+    }
+
+	&.open {
+		position: fixed;
+		left: 240px;
+	}
+
+	&.search-active {
+		position: fixed;
+		width: 100%;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.inline{
+	display: inline-block;
+}
+
+strong{
+	font-weight: bold;
+}
+
+ul {
+	padding-left: 0;
+}
+
+img {
+	 max-width: 100%;
+	 height: auto;
+	 vertical-align: bottom;
+}
