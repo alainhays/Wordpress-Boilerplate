@@ -64,7 +64,7 @@
 			}
 		}
 
-		@include max-mobile() {
+		@media(max-width: 568px) {
 			[class^=span] {
 				width: 100% !important;
 				margin: 0 !important;
@@ -198,11 +198,14 @@
 	.offset11 {
 		margin-left: (percentage((11*column+23*margin)/max-width));
 	}
+
+	&:after {
+		cf()
+	}
 }
 
 section {
 	position: relative;
-	color red
 
 	@media(max-width 960px){
 		padding-left: 20px;
@@ -243,6 +246,20 @@ section {
 		[class^=span] {
 			// The padding-bottom is based on the size of the bottom. Ideally the text within the button would be kept to a minimum.
 			padding-bottom: 45px;
+		}
+	}
+}
+
+@media(max-width: 568px) {
+	section {
+		.row {
+			[class^=span] {
+				width: (percentage((12*column+22*margin)/max-width));
+			}
+
+			[class*=offset] {
+				margin-left: (percentage(margin/max-width));
+			}
 		}
 	}
 }

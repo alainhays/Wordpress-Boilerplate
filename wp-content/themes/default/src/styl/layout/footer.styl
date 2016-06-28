@@ -1,14 +1,15 @@
 /*** Site Footer Styles ***/
 
-.site-footer {
+#site-footer {
 	background-color: $ed-blue;
 	padding: 30px 0;
 
-	@include max-desktop() {
+	+ size(tablet) {
 		padding: 30px 20px;
 	}
 
-	@include max-mobile() {
+	+ size(mobile) {
 		padding: 20px 15px;
 	}
 }
+ 

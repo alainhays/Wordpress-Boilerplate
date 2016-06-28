@@ -1,25 +1,19 @@
-// Base - For Global Variables
-
+// Base - Contains global styles, such as resets, typography, colors, etc.
 @require 'base/constants'
-@require 'base/mixins'
 @require 'base/reset'
 @require 'base/typography'
 
-// @require 'mixins'
-// @require 'normalize'
-// @require 'grid'
-// @require 'fonts'
-// @require 'util'
-// @require 'base'
-//
+// Utils - Contains global mixins, functions, helper selectors, etc.
+@require 'utils/mixins'
 
-// Pages
+// Components - Contains each self-contained components i.e. Buttons
+@require 'components/buttons'
 
-@require 'pages/home'
-
-// Layout 
-
+// Layout - Contains styling for larger layout components; e.g. nav, header, footer, etc.
 @require 'layout/footer'
 @require 'layout/header'
 @require 'layout/base'
 @require 'layout/grid'
+
+// Pages - Contains page-specific styling, if necessary
+@require 'pages/home'
