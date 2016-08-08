@@ -1,8 +1,11 @@
 /*
 !.gitignore
-!wp-content/
 
+!wp-content/
 wp-content/*
+
+!wp-content/plugins/
+wp-content/plugins/index.php
 
 !wp-content/themes/
 wp-content/themes/*
@@ -10,17 +13,15 @@ wp-content/themes/*
 wp-content/themes/default/node_modules
 
 
-wp-content/themes/default/src/fonts/*
-!wp-content/themes/default/src/fonts/.gitkeep
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
 
-wp-content/themes/default/src/images/*
-!wp-content/themes/default/src/images/.gitkeep
+# Folder config file
+Desktop.ini
 
-wp-content/themes/default/src/icons/*
-!wp-content/themes/default/src/icons/.gitkeep
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
 
-wp-content/themes/default/npm-debug.log
-wp-content/themes/default/assets
-wp-content/themes/default/*.php
-wp-content/themes/default/src/templates/template-home.php
-wp-content/themes/default/src/styl/test.styl
+# Mac crap
+.DS_Store
