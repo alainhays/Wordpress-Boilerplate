@@ -1,2 +1,2 @@
-!function(o){function r(e){if(t[e])return t[e].exports;var n=t[e]={exports:{},id:e,loaded:!1};return o[e].call(n.exports,n,n.exports,r),n.loaded=!0,n.exports}var t={};return r.m=o,r.c=t,r.p="",r(0)}([function(o,r,t){"use strict";t(1)},function(o,r){"use strict";console.log("Hello world")}]);
+!function(t){function r(n){if(e[n])return e[n].exports;var o=e[n]={exports:{},id:n,loaded:!1};return t[n].call(o.exports,o,o.exports,r),o.loaded=!0,o.exports}var e={};return r.m=t,r.c=e,r.p="",r(0)}([function(t,r,e){"use strict";e(1)},function(t,r){"use strict";alert("Change the JS")}]);
 //# sourceMappingURL=main.js.map
