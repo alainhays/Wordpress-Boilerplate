@@ -37,6 +37,12 @@ if (function_exists('add_theme_support'))
 }
 
 /*------------------------------------*\
+	Turn off Admin Bar
+\*------------------------------------*/
+
+show_admin_bar( false );
+
+/*------------------------------------*\
 	Functions
 \*------------------------------------*/
 
@@ -89,7 +95,16 @@ function remove_thumbnail_dimensions( $html )
 	$html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
 	return $html;
 }
+//hook the administrative header output
+add_action('admin_head', 'my_custom_logo');
 
+function my_custom_logo() {
+echo '
+<style type="text/css">
+#header-logo { background-image: url('.get_bloginfo('template_directory').'/images/custom-logo.gif) !important; }
+</style>
+';
+}
 /*------------------------------------*\
 	Actions + Filters + ShortCodes
 \*------------------------------------*/
@@ -119,6 +134,7 @@ add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed i
 add_filter('style_loader_tag', 'html5_style_remove'); // Remove 'text/css' from enqueued stylesheet
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
+add_filter('show_admin_bar', '__return_false'); // Turn off Admin Bar
 
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether

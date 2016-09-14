@@ -1,42 +1,42 @@
-var gulp = require( 'gulp' );
-var gutil = require( 'gulp-util' );
-var watch = require( 'gulp-watch' );
-var plumber = require( 'gulp-plumber' );
-var notify = require( 'gulp-notify' );
-var concat = require( 'gulp-concat' );
-var replace = require( 'gulp-replace' );
-var rename = require( 'gulp-rename' );
-var stylus = require( 'gulp-stylus' );
-var postcss = require( 'gulp-postcss' );
-var autoprefixer = require( 'autoprefixer' );
-var cleanCSS = require( 'gulp-clean-css' );
-var uglify = require( 'gulp-uglify' );
-var inline = require( 'gulp-inline-source' );
-var sourcemaps = require( 'gulp-sourcemaps' );
-var imagemin = require( 'gulp-imagemin' );
-var rev = require( 'gulp-rev' );
-var revReplace = require( 'gulp-rev-replace' );
-var cssRef = require( 'gulp-rev-css-url' );
+const gulp = require( 'gulp' );
+const gutil = require( 'gulp-util' );
+const watch = require( 'gulp-watch' );
+const plumber = require( 'gulp-plumber' );
+const notify = require( 'gulp-notify' );
+const concat = require( 'gulp-concat' );
+const replace = require( 'gulp-replace' );
+const rename = require( 'gulp-rename' );
+const stylus = require( 'gulp-stylus' );
+const postcss = require( 'gulp-postcss' );
+const autoprefixer = require( 'autoprefixer' );
+const cleanCSS = require( 'gulp-clean-css' );
+const uglify = require( 'gulp-uglify' );
+const inline = require( 'gulp-inline-source' );
+const sourcemaps = require( 'gulp-sourcemaps' );
+const imagemin = require( 'gulp-imagemin' );
+const rev = require( 'gulp-rev' );
+const revReplace = require( 'gulp-rev-replace' );
+const cssRef = require( 'gulp-rev-css-url' );
 
-var svgmin = require( 'gulp-svgmin' );
-var svgstore = require( 'gulp-svgstore' );
+const svgmin = require( 'gulp-svgmin' );
+const svgstore = require( 'gulp-svgstore' );
 
-var fs = require( 'fs' );
-var del = require( 'del' );
-var through = require( 'through2' );
-var path = require( 'path' );
+const fs = require( 'fs' );
+const del = require( 'del' );
+const through = require( 'through2' );
+const path = require( 'path' );
 
-var vinylPaths = require( 'vinyl-paths' );
+const vinylPaths = require( 'vinyl-paths' );
 
-var browserSync = require( 'browser-sync' ).create();
+const browserSync = require( 'browser-sync' ).create();
 
-var eslint = require( 'gulp-eslint' );
-var webpack = require( 'webpack' );
+const eslint = require( 'gulp-eslint' );
+const webpack = require( 'webpack' );
 
-var argv = require( 'yargs' ).argv;
-var gulpif = require( 'gulp-if' );
+const argv = require( 'yargs' ).argv;
+const gulpif = require( 'gulp-if' );
 
-var pkg = require( './package.json' );
+const pkg = require( './package.json' );
 
 /*----------------------------*\
 	Clean
@@ -55,7 +55,7 @@ gulp.task( 'unrev', function( cb ) {
 
 	if( !argv.production ) { cb(); return; }
 
-	var vp = vinylPaths();
+	const vp = vinylPaths();
 	gulp.src( ['./assets/**/*.*', '!./assets/rev-manifest.json'] )
 	.pipe( plumber() )
 	.pipe( vp )
@@ -83,12 +83,12 @@ gulp.task( 'css', ['clean:css'], function() {
 		} )
 	} ) )
 	.pipe( sourcemaps.init() )
-	.pipe( stylus( {compress: false, url: 'embedurl'} ) )
+	.pipe( stylus( {compress: true, url: 'embedurl'} ) )
 	.pipe( postcss( [ autoprefixer() ] ) )
 	.pipe( gulpif( argv.production, cleanCSS() ) )
 	.pipe( sourcemaps.write( '.' ) )
 	.pipe( gulp.dest( './assets/css' ) )
-	.pipe( browserSync.stream( {match: '**/*.css'} ) );
+	.on( 'end', browserSync.reload );
 } );
 
 /*----------------------------*\
@@ -216,8 +216,9 @@ gulp.task( 'inline', ['rev'], function() {
 /*----------------------------*\
 	File revisioning
 \*----------------------------*/
+
 // Remove originals
-var rmOrig = function() {
+const rmOrig = function() {
 	return through.obj( function( file, enc, cb ) {
 		if( file.revOrigPath ) {
 			fs.unlink( file.revOrigPath, function( err ) {
@@ -248,7 +249,7 @@ gulp.task( 'rev', ['revision'], function( cb ) {
 
 	if( !argv.production ) { cb(); return; }
 
-	var manifest = gulp.src( './assets/rev-manifest.json' );
+	const manifest = gulp.src( './assets/rev-manifest.json' );
 
 	return gulp.src( ['./**/*.php', '!./src/**/*', '!node_modules/**/*'] )
 	.pipe( plumber() )
@@ -266,7 +267,7 @@ gulp.task( 'default', ['cleanbuild'], function() {
 
 	if( !argv.production ) {
 
-		var protocol = pkg.https ? 'https' : 'http';
+		const protocol = pkg.https ? 'https' : 'http';
 
 		browserSync.init( {
 			proxy: protocol + '://localhost',

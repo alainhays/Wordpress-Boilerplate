@@ -14,7 +14,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<?php wp_head(); ?>
 		<link rel="stylesheet" href="assets/css/main.css">
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="assets/js/main.js" async></script>
 		<!--[if lt IE 9]>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.3.1/es5-shim.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.3.1/es5-sham.min.js"></script>
@@ -23,4 +24,3 @@
 		<![endif]-->
 	</head>
 	<body>
-		<!--<div class="hidden"><img src="assets/images/icons.svg" inline></div>-->
