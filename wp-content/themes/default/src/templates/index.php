@@ -4,7 +4,7 @@
 
     <div class="row">
 
-        <div class="span12">Hello world</div>
+        <div class="span12"></div>
 
     </div>
 

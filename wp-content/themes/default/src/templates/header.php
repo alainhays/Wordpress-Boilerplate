@@ -24,3 +24,11 @@
 		<![endif]-->
 	</head>
 	<body>
+		<header class="header container">
+			<div class="row">
+				<div class="span2">
+					<img src="assets/images/logo.jpg" alt="Logo" />
+				</div>
+				<?=get_template_part('_nav');?>
+			</div>
+		</header>
