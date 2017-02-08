@@ -1,12 +1,4 @@
-// Mobile Menu
-
-const mobileMenuIcon = $('.burger-menu');
-
-const mobileMenu = $('.nav')
-
-function openMenu(){
-    mobileMenuIcon.toggleClass('open');
-	mobileMenu.toggleClass('open');
-};
-
-mobileMenuIcon.click(openMenu);
+$('.burger-menu').on('click', function() {
+  $(this).toggleClass("burger-menu--opened");
+  $(this).toggleClass("burger-menu--closed");
+});

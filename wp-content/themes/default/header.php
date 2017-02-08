@@ -29,6 +29,10 @@
 				<div class="span2">
 					<img src="<?=get_template_directory_uri()?>/assets/images/logo.jpg" alt="Logo" />
 				</div>
-				<?=get_template_part('_nav');?>
+				<div class="burger-menu burger-menu--closed">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
 			</div>
 		</header>
