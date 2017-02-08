@@ -3,8 +3,8 @@ body {
 	width: 100%;
 	left: 0;
 	transition: left 0.3s ease;
-    font-size 24px;
-	
+    font-size: 24px;
+
 	&.open {
 		position: fixed;
 		left: 240px;

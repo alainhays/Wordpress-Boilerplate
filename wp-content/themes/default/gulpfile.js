@@ -6,7 +6,7 @@ const notify = require( 'gulp-notify' );
 const concat = require( 'gulp-concat' );
 const replace = require( 'gulp-replace' );
 const rename = require( 'gulp-rename' );
-const stylus = require( 'gulp-stylus' );
+const sass = require( 'gulp-sass' );
 const postcss = require( 'gulp-postcss' );
 const autoprefixer = require( 'autoprefixer' );
 const cleanCSS = require( 'gulp-clean-css' );
@@ -70,26 +70,19 @@ gulp.task( 'unrev', function( cb ) {
 	} );
 } );
 
+var paths = {
+    sass: [
+        './src/sass/**/*.scss'
+    ]
+};
 /*----------------------------*\
-	Compile Stylus
+	Compile SASS
 \*----------------------------*/
-gulp.task( 'css', ['clean:css'], function() {
-	return gulp.src( './src/styl/main.styl' )
-	.pipe( plumber( {
-		errorHandler: notify.onError( {
-			title: 'CSS Error',
-			message: '<%= error.message %>',
-			icon: 'http://littleblackboxdev.co.uk/gulp-logo.png'
-		} )
-	} ) )
-	.pipe( sourcemaps.init() )
-	.pipe( stylus( {compress: true, url: 'embedurl'} ) )
-	.pipe( postcss( [ autoprefixer() ] ) )
-	.pipe( gulpif( argv.production, cleanCSS() ) )
-	.pipe( sourcemaps.write( '.' ) )
-	.pipe( gulp.dest( './assets/css' ) )
-	.on( 'end', browserSync.reload );
-} );
+gulp.task('css', function () {
+    return gulp.src(paths.sass)
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(gulp.dest('./assets/css'));
+});
 
 /*----------------------------*\
 	Icons
@@ -274,7 +267,7 @@ gulp.task( 'default', ['cleanbuild'], function() {
 			open: 'external'
 		} );
 
-		watch( ['./src/styl/**/*'], function() {
+		watch( ['./src/sass/**/*'], function() {
 			gulp.start( 'css' );
 		} );
 

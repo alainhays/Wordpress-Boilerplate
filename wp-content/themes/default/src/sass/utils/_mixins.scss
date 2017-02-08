@@ -1,0 +1,23 @@
+// /** Responsive Media Query Mixin **/
+// size(n)
+//     @media(max-width: n) {block}
+//
+// //This is the useful part: it compares the given value to the base values and calculates the correct output
+// font-size($fontValue = base-font-size, $baseFontValue = base-font-size, $baseLineValue = base-line-height)
+//     font-size   $fontValue px
+//     font-size   ($fontValue / $baseFontValue) rem
+//     line-height ($fontValue / $baseFontValue) * $baseLineValue
+//     line-height ($baseLineValue/$baseFontValue) * ($fontValue / $baseFontValue) rem
+//
+// // Clear Fix for Row + Other areas
+// cf()
+//     visibility hidden
+//     display block
+//     font-size 0
+//     content " "
+//     clear both
+//     height 0
+//
+//
+// shortTrans()
+//     transition 0.4s ease-in-out

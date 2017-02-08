@@ -15,7 +15,7 @@
 		"gulp-concat": "^2.6.0",
 		"gulp-replace": "^0.5.3",
 		"gulp-rename": "^1.2.2",
-		"gulp-stylus": "^2.3.1",
+		"gulp-sass": "^3.1.0",
 		"gulp-postcss": "^6.1.0",
 		"autoprefixer": "^6.3.5",
 		"gulp-clean-css": "^2.0.4",
