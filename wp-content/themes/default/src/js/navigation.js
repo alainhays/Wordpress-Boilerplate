@@ -1,4 +1,10 @@
-$('.burger-menu').on('click', function() {
-  $(this).toggleClass("burger-menu--opened");
-  $(this).toggleClass("burger-menu--closed");
-});
+// Constants
+const burgerMenu = document.querySelector('.burger-menu');
+
+// Functions
+function openMenu() {
+	burgerMenu.classList.remove('burger-menu--closed');
+}
+
+// Events
+burgerMenu.addEventListener('click', openMenu);

@@ -29,7 +29,7 @@
 				<div class="span2">
 					<img src="assets/images/logo.jpg" alt="Logo" />
 				</div>
-				<div class="burger-menu burger-menu--closed">
+				<div class="burger-menu">
   <div class="bar"></div>
   <div class="bar"></div>
   <div class="bar"></div>
