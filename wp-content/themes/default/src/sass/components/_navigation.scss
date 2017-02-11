@@ -1,78 +1,78 @@
-.burger-menu {
-    margin: 0 auto;
-    width: 40px;
-    display: block;
-    transition: all .3s;
+.burger-menu{
     cursor: pointer;
-    height: 40px;
-    padding-top: 4px;
-    background-color: $softRed;
+    padding: 25px 12px 25px 15px;
+    display:block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+    background: $softRed;
 
-    .bar {
-        transition: all .3s;
-        height: 2px;
-        width: 100%;
-        display: block;
-        background-color: white;
+  span {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: white;
+    transition: all .2s ease-in-out;
 
-        &:nth-of-type(2) {
-            margin: 12px 0;
-        }
-   }
+    &:before, &:after {
+      position: absolute;
+      background: white;
+      content: '';
+      width: 30px;
+      height: 2px;
+      transition: all .2s ease-in-out;
+    }
 
-   &--closed {
-        transition-delay: .3s;
+    &:before {
+      top: -10px;
+      width: 20px;
+      right: 0px;
+    }
 
-        .bar {
-            float: right;
+    &:after {
+      top: 10px;
+      width: 15px;
+      right: 0px;
+    }
+  }
 
-            &:nth-of-type(2) {
-                width: 75%;
-                transition-property: margin, height, width;
-                transition-delay: .3s, .3s, 0s;
-            }
+  &:hover {
+      span {
+          &:before, &:after {
+              width: 30px;
+          }
+      }
+  }
+}
+.burger-menu.open {
+  span {
+    background: transparent;
 
-            &:nth-of-type(3) {
-                 width: 50%;
-            }
-        }
-        &:hover {
-            .bar {
+    &:before, &:after {
+        width: 30px;
+    }
 
-                width: 100%;
+    &:before {
+        top: -6px;
+      transform: rotate(45deg) translate(5px, 6px);
+    }
 
-                &:nth-of-type(2) {
-                  width: 100%;
-                }
-            }
-                &:nth-of-type(3) {
-                  width: 100%;
-            }
-        }
-   }
+    &:after {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+  }
+}
 
-    &--opened {
-        padding-top: 18px;
+nav {
+    .menu {
+        opacity: 0;
+        transition: 0.4s ease-in-out;
 
-        .bar {
-
-             &:nth-of-type(1) {
-                 transform: rotate(45deg);
-                 transition-delay: .3s;
-                 height: 2px;
-             }
-
-             &:nth-of-type(2) {
-                 opacity: 0;
-                 height: 0;
-                 margin: -3px;
-             }
-
-            &:nth-of-type(3) {
-                transform: rotate(-45deg);
-                transition-delay: .3s;
-                height: 2px;
-            }
+        &.open {
+            opacity: 1;
+            transition: 0.4s ease-in-out;
         }
     }
 }

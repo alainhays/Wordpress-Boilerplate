@@ -25,14 +25,8 @@
 	</head>
 	<body>
 		<header class="header container">
-			<div class="row">
-				<div class="span2">
-					<img src="assets/images/logo.jpg" alt="Logo" />
-				</div>
-				<div class="burger-menu">
-  <div class="bar"></div>
-  <div class="bar"></div>
-  <div class="bar"></div>
-</div>
-			</div>
+			<a class="burger-menu"><span></span></a>
 		</header>
+		<nav>
+			<?=wp_nav_menu();?>
+		</nav>
